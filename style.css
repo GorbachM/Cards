@@ -36,7 +36,6 @@ body {
   gap: 8px;
   padding: 4px;
   border-radius: 24px;
-  height: 360px;
   background: linear-gradient(180deg, rgba(107, 125, 222, 0.12) 0%, #2921A5 100%);
   box-shadow: 0px 24px 48px 0px rgba(23, 43, 151, 0.72);
 }
