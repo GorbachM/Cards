@@ -1,0 +1,224 @@
+//@mixin margin($level)
+//  $value: $level * 4
+//  @if $value <= 80
+//    margin: $value + px
+//  @else
+//    margin: 80px
+
+@function margin($px)
+  $result: $px * 4 + px
+  @return $result
+
+@function rem($px)
+  $result: ($px/16) + rem
+  @return $result
+
+
+*
+  padding: 0
+  margin: 0
+  outline: 0
+  border: 0
+  text-decoration: none
+  list-style: none
+  box-sizing: border-box
+
+
+body
+  font-family: Roboto, sans-serif
+  overflow-x: hidden
+
+.main
+  display: flex
+  flex-direction: column
+  align-items: center
+
+
+.main__h
+  margin-bottom: margin(8)
+  margin-top: 20px
+  h1
+    font-size: rem(28)
+    font-style: normal
+    font-weight: 700
+    line-height: 32px
+
+.main__block-cards
+  display: flex
+  justify-content: center
+  gap: 8px
+  padding: margin(1)
+  border-radius: 24px
+  height: 360px
+  //border: 4px solid rgba(107, 125, 222, 0.24)
+  background: linear-gradient(180deg, rgba(107, 125, 222, 0.12) 0%, #2921A5 100%)
+  box-shadow: 0px 24px 48px 0px rgba(23, 43, 151, 0.72)
+
+
+.arrow
+  position: absolute
+  right: -50px
+  z-index: 50
+  top: 92px
+.card
+  border-radius: 20px
+  height: 352px
+  width: 419px
+  position: relative
+  cursor: pointer
+.card-1
+  border-radius: 20px
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+  background: linear-gradient(180deg, #6377E1 0%, #2920A5 100%)
+  &:hover
+    background: linear-gradient(180deg, #657EFF 0%, #2920A5 100%)
+    transform: scale(0.97)
+    z-index: 20
+
+
+
+
+.card-1::after
+  content: ""
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: -1
+  margin: -2px
+  border-radius: inherit
+  background: linear-gradient(180deg, #CAD2FF 0%, #475FDF 100%)
+
+
+.card-2
+  border-radius: 20px
+  background: linear-gradient(180deg, #E163E1 0%, #741595 100%)
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+  &:hover
+    background: linear-gradient(180deg, #F0CCFF 0%, #B247DF 100%)
+    transform: scale(0.97)
+    z-index: 20
+
+
+.card-2::after
+  content: ""
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: -1
+  margin: -2px
+  border-radius: inherit
+  background: linear-gradient(180deg, #F0CCFF 0%, #B247DF 100%)
+
+.card-3
+  border-radius: 20px
+  background: linear-gradient(180deg, #55CE00 0%, #014D1D 100%),linear-gradient(180deg, #ADEF7E 0%, #3A8207 100%)
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+  &:hover
+    transform: scale(0.97)
+    background: linear-gradient(180deg, #5DE101 0%, #014D1D 100%)
+    z-index: 20
+
+.card-3::after
+  content: ""
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: -1
+  margin: -2px
+  border-radius: inherit
+  border-image-source: linear-gradient(180deg, #ADEF7E 0%, #3A8207 100%)
+
+
+
+
+
+img
+  width: 100%
+  position: absolute
+  top: 88px
+
+
+.card__count
+  display: flex
+  gap: 16px
+  padding: 20px 36px 0 20px
+
+  .number
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: rem(24)
+    background: linear-gradient(180deg, #2920A5 0%, #6377E1 100%)
+    color: #FFFFFF
+    min-width: rem(48)
+    height: rem(48)
+    border-radius: 50%
+
+  .text
+    white-space: pre-line
+    font-size: rem(20)
+    font-style: normal
+    font-weight: 700
+    line-height: 24px
+    color: #FFFFFF
+
+.main__partners
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 12px 16px
+  gap: 12px
+  width: 100%
+  height: 65px
+  margin-top: 92px
+  margin-bottom: 30px
+  background-image: url("img/BT.svg")
+  background-repeat: no-repeat
+  background-position: center
+  cursor: pointer
+  &:hover
+    background-image: url("img/BTHover.svg")
+    background-repeat: no-repeat
+    background-position: center
+  &:active
+    background-image: url("img/BTActive.svg")
+    background-repeat: no-repeat
+    background-position: center
+
+@media screen and (max-width: 1320px)
+  .main__block-cards
+    flex-direction: column
+
+  .main__h
+    margin: 24px 0 36px 0
+    text-align: left
+
+  .arrow
+    transform: scaleX(-1) rotate(90deg)
+    right: -28px
+    top: 340px
+
+
+
+@media screen and (max-width: 500px)
+  .wrapper
+    padding: 0 12px 0 12px
+    display: flex
+    flex-direction: column
+    align-items: center
+  .card
+    width: 328px
+    height: 352px
+
+  img
+    top: 126px
+  .img-1
+    top: 145px
+  .img-3
+    top: 165px
